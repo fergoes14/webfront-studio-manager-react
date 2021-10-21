@@ -1,0 +1,14 @@
+.colorBar{
+    background-color: #011e3c !important;
+}
+
+button{
+    margin-left: 5px !important;
+}
+.tableActions {
+    width: 150px ;
+}
+
+.floatRigth{
+    float: right !important;
+}
