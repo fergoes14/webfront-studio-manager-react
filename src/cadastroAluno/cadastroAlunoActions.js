@@ -6,7 +6,7 @@ import { showTabs, selectTab } from '../common/tabs/tabActions'
 
 
 
-const BASE_URL = 'http://localhost:3000/alunos'
+const BASE_URL = 'https://backend-studio-manager.herokuapp.com/alunos/alunos'
 const INITIAL_VALUES = {}
 
 export function getList() {
