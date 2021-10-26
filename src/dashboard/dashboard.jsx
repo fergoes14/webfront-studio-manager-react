@@ -11,7 +11,7 @@ import { applyMiddleware } from 'redux'
 import {  refreshToken } from '../auth/authActions'
 
 
-const BASE_URL = 'https://backend-studio-manager.herokuapp.com/alunos/alunos/summary'
+const BASE_URL = 'https://backend-studio-manager.herokuapp.com/alunos/summary'
 class Dashboard extends Component {
 
     state = {
