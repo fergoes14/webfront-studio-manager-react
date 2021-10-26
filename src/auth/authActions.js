@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toastr } from 'react-redux-toastr'
 
-const BASE_URL = 'https://backend-studio-manager.herokuapp.com'
+const BASE_URL = 'https://backend-studio-manager.herokuapp.com/alunos'
 
 export function signup(values) {
     return dispatch => {
