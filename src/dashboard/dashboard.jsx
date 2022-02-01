@@ -8,7 +8,7 @@ import ValueBox from '../common/widget/valueBox'
 import Row from '../common/layout/row'
 import axios from 'axios'
 import { applyMiddleware } from 'redux'
-import {  refreshToken } from '../auth/authActions'
+import { refreshToken } from '../auth/authActions'
 
 
 const BASE_URL = 'https://backend-studio-manager.herokuapp.com/alunos/summary'
@@ -50,6 +50,8 @@ class Dashboard extends Component {
                     </div>
                 ))}
 
+            
+        
             </div>
         )
     }
@@ -58,5 +60,5 @@ class Dashboard extends Component {
 
 
 const mapStateToProps = state => ({ auth: state.auth })
-const mapDispatchToProps = dispatch => bindActionCreators({refreshToken }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ refreshToken }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

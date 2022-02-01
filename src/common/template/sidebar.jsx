@@ -4,9 +4,14 @@ import Menu from './menu'
 export default props => {
     return (
         <aside className='main-sidebar'>
-            <section className='sidebar'>
-                <Menu />
-            </section>
+            <div className='slimScrollDiv'>
+                <section className='sidebar'>
+                    <Menu />
+                </section>
+                <div className='slimScrollBar'></div>
+                <div className='slimScrollRail'></div>
+            </div>
+
         </aside>
     )
 

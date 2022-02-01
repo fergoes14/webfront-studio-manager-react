@@ -17,7 +17,7 @@ export default props =>{
                  readOnly={props.readOnly}
                  type={props.type}
                  mask={props.mask}
-                 
+                 value={props.value}
                  
                  />
             </div>

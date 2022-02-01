@@ -1,3 +1,8 @@
+
+.container{
+    margin-bottom: -40px;
+}
+
 .colorBar{
     background-color: #011e3c !important;
 }
@@ -8,7 +13,217 @@ button{
 .tableActions {
     width: 150px ;
 }
+.tableName {
+  width: 400px;
+}
 
 .floatRigth{
     float: right !important;
 }
+
+.content-wrapper{
+    max-height: 1000px !important;
+}
+
+.footerS{
+    height: 10px !important;
+}
+
+.Modal {
+    text-align: center;
+    width: 300px;
+    position: relative;
+    margin: 10% auto;
+    padding: 15px 20px;
+    background: #fff;
+   border-radius: 5px;
+    border-style: solid;
+    border-color:rgba(0, 0, 0, 0.87);
+    border-width: 7px;
+    
+  }
+  .ModalCalendar {
+    text-align: center;
+    width: 498px;
+    height: 192px;
+    position: relative;
+    margin: 10% auto;
+    padding: 15px 20px;
+    background: #fff;
+   border-radius: 5px;
+    border-style: solid;
+    border-color:rgba(0, 0, 0, 0.87);
+    border-width: 7px;
+    
+  }
+
+  .btnAdd{
+    margin-top: -50px;
+    margin-right: -55px;
+    border-radius: 50%;
+    
+  }
+
+  .divFlex{
+      flex:1;
+      flex-direction: column !important;
+      align-content: center;
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    
+    align-items: center;
+    align-content: center;
+  }
+
+  .btnModal{
+    position: absolute;
+    width: 30px;
+    right: -15px;
+    top: -20px;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 5px;
+    background: #ff4545;
+    border-radius: 50%;
+    font-size: 16px;
+    color: #8d0000;
+      
+  }
+  .imgModal{
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+  }
+  
+  input[type='file'] {
+    display: none
+  }
+  
+  
+  .labelFile {
+    background-color: #333;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    margin: 10px;
+    padding: 6px 20px
+  }
+
+  .container-card{
+    display: flex;
+    flex-direction: row;
+  }
+  .card {
+    background: #EEF0F2;
+    border-radius: 2px;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    transition: 0.3s ease;
+    box-shadow: 5px 5px 5px black;
+    cursor: pointer;
+    margin-left: 30px;
+    align-items: center;
+  
+          
+  }
+
+  .icon-card{
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+ .card:hover{
+  box-shadow: 5px 10px 10px black;
+      
+  }
+  .card:active{
+    box-shadow: none;
+    transform-origin: center;
+    transform: scale(0.98);
+    
+  }
+
+  .imgCard{
+    width: 100%;
+    height: 100%;
+  }
+
+  .select-calendar {
+    width: 10%;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffffff;
+  }
+
+  .button-calendar{
+    margin: 5px ;
+    border-radius: 12px;
+  }
+  .container-color-picker {
+  display: flex;
+  flex-direction: row;
+  
+       
+  }
+
+ .float{
+   display: block;
+   margin-left: 50px;
+  margin-bottom: -40px;
+ }
+ 
+ input[type="checkbox"].tui-full-calendar-checkbox-round {
+  display:none;
+  
+} 
+
+input[type="checkbox"].tui-full-calendar-checkbox-round + span {
+  display: inline-block;
+  cursor: pointer;
+  width: 25px;
+  height: 30px;
+  line-height: 14px;
+  vertical-align: middle;
+  margin-right: 8px;
+  border-radius: 8px;
+  border: solid 2px;
+  background: transparent; 
+} 
+
+input[type="checkbox"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+}
+input[type="checkbox"] {
+  margin: 4px 0 0;
+  margin-top: 1px \9;
+  line-height: normal;
+}
+input[type="checkbox"]:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+ 

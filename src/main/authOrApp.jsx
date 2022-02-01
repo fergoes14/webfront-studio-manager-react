@@ -17,23 +17,11 @@ class AuthOrApp extends Component {
 
             this.props.validateToken(this.props.auth.user.access_token)
 
-           
-
         }
 
 
     }
-
-   
-
-    
-
-    
-
     render() {
-
-        
-
         const { user, validToken } = this.props.auth
         console.log('usuario user' + user)
         console.log('token valid' + validToken)

@@ -6,14 +6,14 @@ import { showTabs, selectTab } from '../common/tabs/tabActions'
 
 
 
-const BASE_URL = 'https://backend-studio-manager.herokuapp.com/alunos'
+const BASE_URL = 'http://localhost:3000/profissionais'
 const INITIAL_VALUES = {}
 
 export function getList() {
     const request = axios.get(BASE_URL)
 
     return {
-        type: 'CADASTRO_ALUNO_FETCHED',
+        type: 'CADASTRO_PROF_FETCHED',
         payload: request,
 
     }
@@ -29,7 +29,7 @@ export async function submitSearch() {
          axios.get(`${BASE_URL}/search/${nameSearch}`)
 
              .then(resp => dispatch({
-                 type: 'ALUNO_SEARCHED',
+                 type: 'PROF_SEARCHED',
                  payload: resp.data,
 
              }))
@@ -82,40 +82,32 @@ function submit(values, method) {
 
 }
 
-export function showUpdate(cadastroAluno) {
+export function showUpdate(cadastroProf) {
     return [
-        showTabs('tabUpdate'),
-        selectTab('tabUpdate'),
-        initialize('cadastroAlunoForm', cadastroAluno),
+        showTabs('updateProf'),
+        selectTab('updateProf'),
+        initialize('cadastroProfForm', cadastroProf),
 
 
 
     ]
 }
 
-export function showDelete(cadastroAluno) {
+export function showDelete(cadastroProf) {
     return [
-        showTabs('tabDelete'),
-        selectTab('tabDelete'),
-        initialize('cadastroAlunoForm', cadastroAluno)
-
-    ]
-}
-export function showEvo(cadastroAluno) {
-    return [
-        showTabs('tabEvo'),
-        selectTab('tabEvo'),
-        initialize('cadastroAlunoForm', cadastroAluno)
+        showTabs('deleteProf'),
+        selectTab('deleteProf'),
+        initialize('cadastroProfForm', cadastroProf)
 
     ]
 }
 
 export function init() {
     return [
-        showTabs('tabList', 'tabCreate'),
-        selectTab('tabList'),
+        showTabs('listProf', 'createProf'),
+        selectTab('listProf'),
         getList(),
-        initialize('cadastroAlunoForm', INITIAL_VALUES)
+        initialize('cadastroProfForm', INITIAL_VALUES)
     ]
 }
 

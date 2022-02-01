@@ -4,12 +4,15 @@ import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { login, signup } from './authActions'
+import { login, signup, changelogin } from './authActions'
 import Row from '../common/layout/row'
 import Grid from '../common/layout/grid'
 
 import Input from '../common/form/inputAuth'
 import Messages from '../common/msg/messages'
+
+
+
 
 class Auth extends Component {
 
@@ -19,27 +22,33 @@ class Auth extends Component {
         this.state = { loginMode: true }
 
         this.changeMode = this.changeMode.bind(this)
-        
+
     }
 
-    
-     
-
-    
-
+    // password match validation
     changeMode() {
         this.setState({ loginMode: !this.state.loginMode })
     }
+
+    componentWillUpdate() {
+        if (this.props.auth.changeLogin == true) {
+            this.changeMode()
+        }
+        console.log('change login' + this.props.auth.changeLogin)
+    }
+
+
     onSubmit(values) {
         const { login, signup } = this.props
-        this.state.loginMode ? login(values) : signup(values, this.changeMode())
-       
+        this.state.loginMode ? login(values) : signup(values)
+
 
     }
 
-    
+
 
     render() {
+
         const { loginMode } = this.state
         const { handleSubmit } = this.props
         return (
@@ -47,15 +56,15 @@ class Auth extends Component {
                 <div className="login-logo"><b> Studio</b> Manager</div>
                 <div className="login-box-body">
                     <p className="login-box-msg">Bem vindo!</p>
-                    <form  onSubmit={handleSubmit(v => this.onSubmit(v))}>
+                    <form onSubmit={handleSubmit(v => this.onSubmit(v))}>
                         <Field component={Input} type="input" name="name"
                             placeholder="Nome" icon='user' hide={loginMode} />
-                        <Field  component={Input} type="email" name="email"
+                        <Field component={Input} type="email" name="email"
                             placeholder="E-mail" icon='envelope' />
-                        <Field  component={Input} type="password" name="password"
+                        <Field component={Input} type="password" name="password"
                             placeholder="Senha" icon='lock' />
-                        {/* <Field component={Input} type="password" name="confirm_password"
-                            placeholder="Confirmar Senha" icon='lock' hide={loginMode} /> */}
+                        <Field component={Input} type="password" name="confirm_password"
+                            placeholder="Confirmar Senha" icon='lock' hide={loginMode} />
                         <Row>
                             <Grid cols="4">
                                 <div>
@@ -89,5 +98,5 @@ class Auth extends Component {
 }
 Auth = reduxForm({ form: 'authForm' })(Auth)
 const mapStateToProps = state => ({ auth: state.auth })
-const mapDispatchToProps = dispatch => bindActionCreators({ login, signup, }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ login, signup }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(Auth)

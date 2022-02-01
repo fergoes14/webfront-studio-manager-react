@@ -9,7 +9,7 @@ export default props => {
                 <span className='logo-lg'><b>Studio</b> Manager</span>
             </a>
             <nav className='navbar navbar-static-top colorBar '>
-                <a href className='sidebar-toggle' data-toggle='offcanvas'></a>
+            <a href className='sidebar-toggle' data-toggle='offcanvas'></a>
                 <Navbar/>
             </nav>
         </header>

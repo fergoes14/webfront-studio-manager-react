@@ -10,7 +10,7 @@ import TabsContent from '../common/tabs/tabsContent'
 import TabHeader from '../common/tabs/tabHeader'
 import TabContent from '../common/tabs/tabContent'
 import { selectTab, showTabs } from '../common/tabs/tabActions'
-
+import ListEvo from './cadastroAlunoEvo'
 import List from './cadastroAlunoList'
 
 
@@ -21,7 +21,7 @@ class CadastroAluno extends Component {
 
     componentWillMount() {
         this.props.selectTab('tabList')
-        this.props.showTabs('tabList', 'tabCreate', 'searchList')
+        this.props.showTabs('tabList', 'tabCreate')
     }
 
     render() {
@@ -36,6 +36,7 @@ class CadastroAluno extends Component {
                             <TabHeader label='Novo' icon='fa fa-plus' target='tabCreate' />
                             <TabHeader label='Alterar' icon='fa fa-pencil' target='tabUpdate' />
                             <TabHeader label='Excluir' icon='fa fa-trash-o' target='tabDelete' />
+                            <TabHeader label='Evolução' icon='fa fa-line-chart' target='tabEvo' />
                         </TabsHeader>
 
                         <TabsContent>
@@ -44,7 +45,9 @@ class CadastroAluno extends Component {
                                 <List />
                             </TabContent>
 
-
+                            <TabContent id='tabEvo'>
+                                <ListEvo />
+                            </TabContent>
 
                             <TabContent id='tabCreate'>
                                 <Form onSubmit={this.props.create} submitLabel='Adicionar' submitClass='bg-navy margin' />

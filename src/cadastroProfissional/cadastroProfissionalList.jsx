@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { getList, submitSearch, showUpdate, showDelete, changeName, init,showEvo } from './cadastroAlunoActions'
+import { getList, submitSearch, showUpdate, showDelete, changeName, init } from './cadastroProfActions'
 import SearchInput from '../common/form/inputSearch'
 
-class CadastroAlunoList extends Component {
+class CadastroProfissionalList extends Component {
     constructor(props) {
         super(props)
         this.keyHandler = this.keyHandler.bind(this)
@@ -14,7 +14,7 @@ class CadastroAlunoList extends Component {
     componentWillMount() {
 
         this.props.getList()
-        console.log('list'+ this.props.list)
+
     }
 
     keyHandler(e) {
@@ -31,18 +31,15 @@ class CadastroAlunoList extends Component {
         const list = this.props.list || []
         return list.map(ca => (
             <tr key={ca._id}>
-                <td>{ca.nome}</td>
+                <td>{ca.name}</td>
                 <td>{ca.status}</td>
-                <td>{ca.cel}</td>
+                <td>{ca.celular || ca.telefone || "N/D"}</td>
                 <td>
                     <button className='btn btn-warning' onClick={() => this.props.showUpdate(ca)}>
                         <i className='fa fa-pencil'></i>
                     </button>
                     <button className='btn btn-danger ' onClick={() => this.props.showDelete(ca)}>
                         <i className='fa fa-trash-o'></i>
-                    </button>
-                    <button onClick={() => this.props.showEvo(ca)} className='btn btn-success'>
-                        <i className='fa fa-line-chart'></i>
                     </button>
                 </td>
 
@@ -64,9 +61,6 @@ class CadastroAlunoList extends Component {
                         <button onClick={this.props.init} className='btn btn-danger'>
                             <i className='fa fa-trash'></i>
                         </button>
-
-
-
                     </div>
 
                 </div>
@@ -87,40 +81,12 @@ class CadastroAlunoList extends Component {
 
                     </table>
                 </div>
-                {/* <div className="dataTables_paginate paging_simple_numbers" id="example2_paginate">
-                    <ul className="pagination">
-                        <li className="paginate_button previous disabled" id="example2_previous">
-                            <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a>
-                        </li>
-                        <li className="paginate_button active"><a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0">1</a>
-                        </li>
-                        <li className="paginate_button ">
-                            <a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0">2</a>
-                        </li>
-                        <li className="paginate_button ">
-                            <a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0">3</a>
-                        </li>
-                        <li className="paginate_button ">
-                            <a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0">4</a>
-                        </li>
-                        <li className="paginate_button ">
-                            <a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0">5</a>
-                        </li>
-                        <li className="paginate_button ">
-                            <a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0">6</a>
-                        </li>
-                        <li className="paginate_button next" id="example2_next">
-                            <a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0">Next</a>
-                        </li>
-                    </ul>
-                </div> */}
-
 
             </div>
         )
     }
 }
 
-const mapStateToProps = state => ({ list: state.cadastroAluno.list })
-const mapDispatchToProps = dispatch => bindActionCreators({ submitSearch, showUpdate, showDelete, changeName, getList, init,showEvo }, dispatch)
-export default connect(mapStateToProps, mapDispatchToProps)(CadastroAlunoList)
+const mapStateToProps = state => ({ list: state.cadastroProf.list })
+const mapDispatchToProps = dispatch => bindActionCreators({ submitSearch, showUpdate, showDelete, changeName, getList, init }, dispatch)
+export default connect(mapStateToProps, mapDispatchToProps)(CadastroProfissionalList)

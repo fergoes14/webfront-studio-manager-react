@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { init } from './cadastroAlunoActions'
 import SelectInput from '../common/form/select'
+import FileInput from '../common/form/inputFile'
 
 
 
@@ -13,19 +14,19 @@ import SelectInput from '../common/form/select'
 class CadastroAlunoForm extends Component {
     constructor(props) {
         super(props)
-        
+
         this.handleChange = this.handleChange.bind(this)
     }
 
     handleChange() {
-           this.props.change("studio",this.props.user.studio)
-           this.props.init
+        this.props.change("studio", this.props.user.studio)
+        this.props.init
 
     }
     render() {
 
         const { handleSubmit, readOnly } = this.props
-           
+
         return (
 
 
@@ -41,7 +42,9 @@ class CadastroAlunoForm extends Component {
                     <Field placeholder='Intuito' name='intuito' component={LabelAndInput} label='Intuito' readOnly={readOnly} />
                     <Field placeholder='Restições' name='restricoes' component={LabelAndInput} label='Restrições' readOnly={readOnly} />
 
-                    <Field type='hidden' name='studio'  component={LabelAndInput}/>
+                    <Field type='hidden' name='studio' component={LabelAndInput} />
+
+                    <Field type="file" name="poster" component={FileInput} label='Upload File' />
                 </div>
 
                 <div>
@@ -50,6 +53,7 @@ class CadastroAlunoForm extends Component {
                     <Field placeholder='Bairro' name='bairro' component={LabelAndInput} label='Bairro' readOnly={readOnly} cols='6 6' />
                     <Field placeholder='Rua' name='rua' component={LabelAndInput} label='Rua' readOnly={readOnly} cols='6 6' />
                 </div>
+                
 
 
                 <div className='box-footer'>
@@ -59,6 +63,7 @@ class CadastroAlunoForm extends Component {
 
                     <button type='button' className='btn btn-danger' onClick={this.props.init}>Cancelar</button>
                 </div>
+
             </form>
 
         )
@@ -66,7 +71,7 @@ class CadastroAlunoForm extends Component {
 }
 
 
-CadastroAlunoForm = reduxForm({ form: 'cadastroAlunoForm', destroyOnUnmount: false})(CadastroAlunoForm)
+CadastroAlunoForm = reduxForm({ form: 'cadastroAlunoForm', destroyOnUnmount: false })(CadastroAlunoForm)
 const mapStateToProps = state => ({ user: state.auth.user })
 const mapDispatchToProps = dispatch => bindActionCreators({ init }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(CadastroAlunoForm)

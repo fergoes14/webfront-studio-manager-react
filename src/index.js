@@ -8,7 +8,8 @@ import registerServiceWorker from './registerServiceWorker'
 import thunk from 'redux-thunk'
 
 import promise from 'redux-promise'
-import multi from 'redux-multi' // Middleware que permite dispatch através de array de actions
+
+import multi from 'redux-multi' 
 
 
 import reducers from './main/reducers'
@@ -23,7 +24,7 @@ const devTools = window.__REDUX_DEVTOOLS_EXTENSION__
       && window.__REDUX_DEVTOOLS_EXTENSION__()
 
       
-const store = applyMiddleware(multi, thunk, promise)(createStore)(reducers,devTools) // Chama todos os Reducers para envolver a aplicação em <App /> com o <Provider> puxando essa constante
+const store = applyMiddleware(multi,promise,thunk)(createStore)(reducers,devTools) // Chama todos os Reducers para envolver a aplicação em <App /> com o <Provider> puxando essa constante
 
 
 
