@@ -1,4 +1,5 @@
 export default {
+  
     'common.border': '1px solid #ddd',
     'common.backgroundColor': 'white',
     'common.holiday.color': '#f54f3d',
@@ -109,7 +110,7 @@ export default {
     'week.creationGuide.fontWeight': 'bold',
   
     // week daygrid schedule style
-    'week.dayGridSchedule.borderRadius': '0',
+    'week.dayGridSchedule.borderRadius': '5px',
     'week.dayGridSchedule.height': '18px',
     'week.dayGridSchedule.marginTop': '2px',
     'week.dayGridSchedule.marginLeft': '10px',

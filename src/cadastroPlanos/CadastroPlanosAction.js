@@ -6,49 +6,19 @@ import { showTabs, selectTab } from '../common/tabs/tabActions'
 
 
 
-const BASE_URL = 'https://backend-studio-manager.herokuapp.com/profissionais'
+const BASE_URL = 'https://backend-studio-manager.herokuapp.com/planos'
 const INITIAL_VALUES = {}
 
 export function getList() {
     const request = axios.get(BASE_URL)
 
     return {
-        type: 'CADASTRO_PROF_FETCHED',
+        type: 'CADASTRO_PLANOS_FETCHED',
         payload: request,
 
     }
 }
-
-
-
-
-export async function submitSearch() {
-    return  (dispatch, getState) => {
-        const nameSearch = getState().cadastroAluno.nameSearch
-       
-         axios.get(`${BASE_URL}/search/${nameSearch}`)
-
-             .then(resp => dispatch({
-                 type: 'PROF_SEARCHED',
-                 payload: resp.data,
-
-             }))
-
-    }
-
-}
-
-  export const changeName = event => ({
-     type: 'NAME_CHANGED',
-     payload: event.target.value
- })
-
  
-
-    
-
-
-
 export function create(values) {
     return submit(values, 'post',
     )
@@ -82,32 +52,40 @@ function submit(values, method) {
 
 }
 
-export function showUpdate(cadastroProf) {
+export function showUpdate(cadastroPlanos) {
     return [
-        showTabs('updateProf'),
-        selectTab('updateProf'),
-        initialize('cadastroProfForm', cadastroProf),
+        showTabs('tabUpdate'),
+        selectTab('tabUpdate'),
+        initialize('cadastroPlanosForm', cadastroPlanos),
 
 
 
     ]
 }
 
-export function showDelete(cadastroProf) {
+export function showDelete(cadastroPlanos) {
     return [
-        showTabs('deleteProf'),
-        selectTab('deleteProf'),
-        initialize('cadastroProfForm', cadastroProf)
+        showTabs('tabDelete'),
+        selectTab('tabDelete'),
+        initialize('cadastroPlanosForm', cadastroPlanos)
+
+    ]
+}
+export function showEvo(cadastroPlanos) {
+    return [
+        showTabs('tabEvo'),
+        selectTab('tabEvo'),
+        initialize('cadastroPlanosForm', cadastroPlanos)
 
     ]
 }
 
 export function init() {
     return [
-        showTabs('listProf', 'createProf'),
-        selectTab('listProf'),
+        showTabs('tabList', 'tabCreate'),
+        selectTab('tabList'),
         getList(),
-        initialize('cadastroProfForm', INITIAL_VALUES)
+        initialize('cadastroPlanosForm', INITIAL_VALUES)
     ]
 }
 

@@ -32,7 +32,7 @@ useLayoutEffect(() => {
     return () => {};
   }, [schedule, startDate, endDate]);
 
-const URL = 'http://localhost:3000'
+const URL = 'https://backend-studio-manager.herokuapp.com'
 class Agenda extends Component {
 
     ref = React.createRef();

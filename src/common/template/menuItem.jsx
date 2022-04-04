@@ -5,7 +5,7 @@ export default props =>{
     return(
         <li>
             <Link to={props.path}>
-                <i className={props.icon}></i> <span>{props.label}</span>
+                <i onClick={props.onClick} className={props.icon}></i> <span>{props.label}</span>
             </Link>
         </li>
     )

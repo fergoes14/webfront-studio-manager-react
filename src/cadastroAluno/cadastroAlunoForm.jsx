@@ -6,65 +6,100 @@ import { bindActionCreators } from 'redux'
 import { init } from './cadastroAlunoActions'
 import SelectInput from '../common/form/select'
 import FileInput from '../common/form/inputFile'
+import axios from 'axios'
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 
 
-
+const URL = 'https://backend-studio-manager.herokuapp.com'
 
 class CadastroAlunoForm extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            calendarsMongo: [],
+            text: '',
 
+        }
         this.handleChange = this.handleChange.bind(this)
+
     }
 
+    async componentDidMount() {
+        const calendarData = await axios.get(`${URL}/profissionais`)
+        this.setState({ calendarsMongo: calendarData.data })
+        console.log(this.state.calendarsMongo)
+
+        this.setState({ start: new Date() })
+        this.setState({ end: new Date() })
+    }
     handleChange() {
         this.props.change("studio", this.props.user.studio)
         this.props.init
 
     }
+   
+
+
+
+
     render() {
 
         const { handleSubmit, readOnly } = this.props
 
         return (
 
+            <div>
+                <form role='form' onSubmit={handleSubmit}>
+                    <div>
+                        <Field placeholder='Nome' name='nome' component={LabelAndInput} label='Nome' cols='12 4' readOnly={readOnly} />
+                        <Field placeholder='E-mail' name='Email' component={LabelAndInput} label='Email' cols='12 4' readOnly={readOnly} />
+                        <Field mask='(99)99999-9999' placeholder='whats' name='cel' component={LabelAndInput} label='Telefone' cols='12 4' readOnly={readOnly} />
 
-            <form role='form' onSubmit={handleSubmit}>
-                <div>
-                    <Field placeholder='Nome' name='nome' component={LabelAndInput} label='Nome' cols='12 4' readOnly={readOnly} />
-                    <Field placeholder='E-mail' name='Email' component={LabelAndInput} label='Email' cols='12 4' readOnly={readOnly} />
-                    <Field mask='(99)99999-9999' placeholder='whats' name='cel' component={LabelAndInput} label='Telefone' cols='12 4' readOnly={readOnly} />
+                        <Field name='status' label='Status' component={SelectInput} cols='12 6' readOnly={readOnly}>
+                            <option value=""></option>
+                            <option value="Ativo">Ativo</option>
+                            <option value="Inativo">Inativo</option>
+                        </Field>
+                        <Field mask='99/99/9999' placeholder='Nascimento' name='nascimento' component={LabelAndInput} cols='12 6' label='Nascimento' readOnly={readOnly} />
 
-                    <Field name='status' label='Status' component={SelectInput} cols='12 6' readOnly={readOnly} />
-                    <Field mask='99/99/9999' placeholder='Nascimento' name='nascimento' component={LabelAndInput} cols='12 6' label='Nascimento' readOnly={readOnly} />
+                        <Field placeholder='Intuito' name='intuito' component={LabelAndInput} label='Intuito' readOnly={readOnly} />
+                        <Field placeholder='Restições' name='restricoes' component={LabelAndInput} label='Restrições' readOnly={readOnly} />
 
-                    <Field placeholder='Intuito' name='intuito' component={LabelAndInput} label='Intuito' readOnly={readOnly} />
-                    <Field placeholder='Restições' name='restricoes' component={LabelAndInput} label='Restrições' readOnly={readOnly} />
+                        <Field type='hidden' name='studio' component={LabelAndInput} />
 
-                    <Field type='hidden' name='studio' component={LabelAndInput} />
+                        <Field type="file" name="poster" component={FileInput} label='Upload File' />
+                    </div>
 
-                    <Field type="file" name="poster" component={FileInput} label='Upload File' />
-                </div>
+                    <div>
+                        <Field mask="99999-999" placeholder='CEP' name='cep' component={LabelAndInput} label='CEP' readOnly={readOnly} cols='12 4' />
+                        <Field placeholder='Número' name='numero' type='Number' component={LabelAndInput} label='Número' readOnly={readOnly} cols='12 4' />
+                        <Field placeholder='Complemento' name='complemento' component={LabelAndInput} label='Complemento' readOnly={readOnly} cols='12 4' />
+                        <Field placeholder='Bairro' name='bairro' component={LabelAndInput} label='Bairro' readOnly={readOnly} cols='6 6' />
+                        <Field placeholder='Rua' name='rua' component={LabelAndInput} label='Rua' readOnly={readOnly} cols='6 6' />
+                    </div>
 
-                <div>
-                    <Field mask="99999-999" placeholder='CEP' name='cep' component={LabelAndInput} label='CEP' readOnly={readOnly} cols='6 6' />
-                    <Field placeholder='Número' name='numero' type='Number' component={LabelAndInput} label='Número' readOnly={readOnly} cols='6 6' />
-                    <Field placeholder='Bairro' name='bairro' component={LabelAndInput} label='Bairro' readOnly={readOnly} cols='6 6' />
-                    <Field placeholder='Rua' name='rua' component={LabelAndInput} label='Rua' readOnly={readOnly} cols='6 6' />
-                </div>
-                
+                   
 
 
-                <div className='box-footer'>
-                    <button type='submit' className={`btn ${this.props.submitClass}`} onClick={this.handleChange}>
-                        {this.props.submitLabel}
-                    </button>
+                    <div className='box-footer'>
+                        <button
+                            type='submit'
+                            className={`btn ${this.props.submitClass}`}
+                            onClick={this.handleChange}
 
-                    <button type='button' className='btn btn-danger' onClick={this.props.init}>Cancelar</button>
-                </div>
+                        >
+                            {this.props.submitLabel}
+                        </button>
 
-            </form>
+                        <button type='button' className='btn btn-danger' onClick={this.props.init}>Cancelar</button>
+                    </div>
+
+                </form>
+            </div>
+
 
         )
     }

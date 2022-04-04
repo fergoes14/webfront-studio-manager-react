@@ -19,7 +19,11 @@ class Auth extends Component {
 
     constructor(props) {
         super(props)
-        this.state = { loginMode: true }
+        this.state = {
+            loginMode: true,
+            password: '',
+            confirmPassword: '',
+        }
 
         this.changeMode = this.changeMode.bind(this)
 
@@ -30,18 +34,26 @@ class Auth extends Component {
         this.setState({ loginMode: !this.state.loginMode })
     }
 
-    componentWillUpdate() {
-        if (this.props.auth.changeLogin == true) {
-            this.changeMode()
-        }
-        console.log('change login' + this.props.auth.changeLogin)
+    async handlepassword(value) {
+        this.setState({ password: await value.target.value })
+        
     }
+
+    async handleconfirmPassword(value) {
+        this.setState({ confirmPassword: await value.target.value })
+    }
+
+    // componentWillUpdate() {
+    //     if (this.props.auth.changeLogin == true) {
+    //         this.changeMode()
+    //     }
+    //     console.log('change login' + this.props.auth.changeLogin)
+    // }
 
 
     onSubmit(values) {
         const { login, signup } = this.props
         this.state.loginMode ? login(values) : signup(values)
-
 
     }
 
@@ -49,7 +61,7 @@ class Auth extends Component {
 
     render() {
 
-        const { loginMode } = this.state
+        const { loginMode, password, confirmPassword } = this.state
         const { handleSubmit } = this.props
         return (
             <div className="login-box">
@@ -61,10 +73,10 @@ class Auth extends Component {
                             placeholder="Nome" icon='user' hide={loginMode} />
                         <Field component={Input} type="email" name="email"
                             placeholder="E-mail" icon='envelope' />
-                        <Field component={Input} type="password" name="password"
+                        <Field component={Input} type="password" name="password" onChange={(value) => this.handlepassword(value)}
                             placeholder="Senha" icon='lock' />
                         <Field component={Input} type="password" name="confirm_password"
-                            placeholder="Confirmar Senha" icon='lock' hide={loginMode} />
+                            placeholder="Confirmar Senha" icon='lock' hide={loginMode} onChange={(value) => this.handleconfirmPassword(value)} />
                         <Row>
                             <Grid cols="4">
                                 <div>
@@ -74,7 +86,8 @@ class Auth extends Component {
                                             Entrar
                                         </button>
                                         :
-                                        <button type="submit"
+                                        <button type="submit" 
+                                        // disabled={password === confirmPassword ? false ? password.length === 0 : true ? confirmPassword.length === 0 : true : true}
                                             className="btn btn-primary btn-block btn-flat" >
                                             Registrar
                                         </button>}

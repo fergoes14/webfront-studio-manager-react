@@ -7,12 +7,15 @@ export default props =>{
         <ul className='sidebar-menu tree sidebar-toggle'>
             <MenuItem path='/'label='Dashboard' icon='fa fa-dashboard'/>
             <MenuItem path='/agenda'label='Agenda' icon='fa fa-calendar'/>
+            <MenuItem path='/matricula'label='Matriculas' icon='fa fa-users'/>
+            <MenuItem path='/Finanças'label='Finanças' icon='fa fa-dollar'/>
             
             
             <MenuTree label='Cadastros' icon='fa fa-edit'>
-                <MenuItem path='/cadastroAlunos' label='Cadastro Aluno' icon='fa fa-user'/>
-                <MenuItem path='/cadastroPofissionais' label='Cadastro Profissional' icon='fa fa-user'/>
-                <MenuItem path='/' label='Cadastro Planos' icon='fa fa-user'/>
+                <MenuItem path='/cadastroAlunos' label='Aluno' icon='fa fa-user'/>
+                <MenuItem path='/cadastroPofissionais' label='Profissional' icon=' fa fa-user-md'/>
+                <MenuItem path='/cadastroSalas' label='Salas' icon='fa fa-map-signs'/>
+                <MenuItem path='/cadastroPlanos' label='Planos' icon='fa  fa-archive'/>
             </MenuTree>
         </ul>
     )

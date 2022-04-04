@@ -8,8 +8,8 @@ import axios from 'axios'
 
 
 // const BASE_URL = 'https://backend-studio-manager.herokuapp.com/profissionais/summary'
-const BASE_URL = 'https://backend-studio-manager.herokuapp.com/profissionais/summary'
-class CountProf extends Component {
+const BASE_URL = 'https://backend-studio-manager.herokuapp.com/pagamentos/summary'
+class CountBilling extends Component {
 
     state = {
         status: []
@@ -31,12 +31,12 @@ class CountProf extends Component {
                         
                         <Content>
                             <Row>
-                                <ValueBox cols='12 4' color='green' icon='fa fa-check-square-o'
-                                    value={status.ativos} text='Profissionais Ativos' />
-                                <ValueBox cols='12 4' color='red' icon='fa fa-times'
-                                    value={status.inativos} text='Profissionais Inativos' />
-                                <ValueBox cols='12 4' color='yellow' icon='fa fa-user-o'
-                                    value={status.ativos + status.inativos} text='Total de Profissionais' />
+                                <ValueBox cols='12 4' color='green' icon='fa fa-bank'
+                                    value={status.creditos} text='Total de Créditos' />
+                                <ValueBox cols='12 4' color='red' icon='fa fa-credit-card'
+                                    value={status.debitos} text='Total de Débitos' />
+                                <ValueBox cols='12 4' color='blue' icon='fa fa-money'
+                                    value={status.creditos - status.debitos} text='Valor Consolidado' />
                             </Row>
                         </Content>
                     </div>
@@ -51,4 +51,4 @@ class CountProf extends Component {
 
 const mapStateToProps = state => ({ auth: state.auth })
 
-export default connect(mapStateToProps)(CountProf)
+export default connect(mapStateToProps)(CountBilling)

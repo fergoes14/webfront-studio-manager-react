@@ -9,6 +9,10 @@ import Dashboard from '../dashboard/dashboard'
 import CadastroAluno from '../cadastroAluno/CadastroAluno'
 import CadastroProfissional from '../cadastroProfissional/cadastroProfissional'
 import Agenda from '../agenda/agenda'
+import CadastroSalas from '../cadastroSalas/CadastroSalas'
+import CadastroPlanos from '../cadastroPlanos/CadastroPlanos'
+import CadastroMatricula from '../cadastroMatricula/CadastroMatricula'
+import billingCycles from '../billingCicles/billingCycle'
 
 
 export default props => {
@@ -20,9 +24,14 @@ export default props => {
                 
                 
                 <Route path='/cadastroAlunos' component={CadastroAluno} />
-                <Route path='/agenda' component={Agenda} />
+                <Route path='/agenda' component={Agenda}/>
+                <Route path='/matricula' component={CadastroMatricula}/>
+                <Route path='/finanças' component={billingCycles}/>
                 <Route path='/cadastroPofissionais' component={CadastroProfissional}/>
-                <Route patch='/login'component={Auth} />
+                <Route path='/cadastroSalas' component={CadastroSalas}/>
+                <Route path='/cadastroPlanos' component={CadastroPlanos}/>
+                <Route patch='/login'component={Auth}/>
+
                 <Redirect from='*' to='/' />
             </Switch>
             </div>

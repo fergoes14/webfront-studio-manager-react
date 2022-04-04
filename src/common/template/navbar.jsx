@@ -13,6 +13,7 @@ const userKey = '_studio_manager_user'
 
 
 class Navbar extends Component {
+    
     constructor(props) {
         super(props)
         this.state = {
@@ -58,7 +59,7 @@ class Navbar extends Component {
     }
 
     fileUpload(file) {
-        const url = 'http://localhost:3000/users';
+        const url = 'https://backend-studio-manager.herokuapp.com/users';
         const formData = new FormData();
         formData.append('photos', file)
         const config = {
@@ -99,6 +100,7 @@ class Navbar extends Component {
         const { changeName } = this.props
         return (
             <div className="navbar-custom-menu ">
+                
                 <ul className="nav navbar-nav " >
                     <li onMouseLeave={() => this.changeOpen()}
                         className={` dropdown user user-menu ${this.state.open ? 'open' :

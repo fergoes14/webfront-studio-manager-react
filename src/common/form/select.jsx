@@ -13,15 +13,8 @@ export default props => {
                 <label htmlFor={props.name}>{props.label}</label>
 
                 <select className='form-control' {...props.input} readOnly={props.readOnly}>
-                    
-                    <option value=""></option>
-                    <option value="Ativo">Ativo</option>
-                    <option value="Inativo">Inativo</option>
+                   {props.children}
                 </select>
-
-
-
-
 
             </div>
         </Grid>

@@ -3,8 +3,8 @@ import { toastr } from 'react-redux-toastr'
 
 import { reset as resetform, initialize } from 'redux-form'
 //const BASE_URL = 'https://backend-studio-manager.herokuapp.com'
-const BASE_URL = 'http://localhost:3000'
-const URL_UP = 'http://localhost:3000/fileupload'
+const BASE_URL = 'https://backend-studio-manager.herokuapp.com'
+const URL_UP = 'https://backend-studio-manager.herokuapp.com/fileupload'
 
 export function signup(values) {
 

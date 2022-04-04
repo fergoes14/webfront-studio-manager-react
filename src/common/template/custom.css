@@ -8,10 +8,11 @@
 }
 
 button{
-    margin-left: 5px !important;
+    margin-left: 1px !important;
 }
 .tableActions {
-    width: 150px ;
+    width: 400px ;
+    padding: 0;
 }
 .tableName {
   width: 400px;
@@ -44,16 +45,31 @@ button{
   }
   .ModalCalendar {
     text-align: center;
-    width: 498px;
-    height: 192px;
+    width: 600px;
+    height: 200px;
     position: relative;
     margin: 10% auto;
     padding: 15px 20px;
     background: #fff;
-   border-radius: 5px;
-    border-style: solid;
-    border-color:rgba(0, 0, 0, 0.87);
-    border-width: 7px;
+    border-top: 6px solid red; 
+    border-style: solid; 
+    border-color:rgba(0, 0, 0, 0.87); 
+    border-width: 7px; 
+    
+  }
+  .ModalDetailCalendar {
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    margin: 10% auto;
+    padding: 15px 20px;
+    background: #fff;
+   /* border-radius: 5px; */
+   /* border-top: 6px solid red; */
+    /* border-style: solid; */
+    /* border-color:rgba(0, 0, 0, 0.87); */
+    /* border-width: 7px; */
     
   }
 
@@ -226,4 +242,27 @@ label {
   margin-bottom: 5px;
   font-weight: 700;
 }
+
+.weekBox{
+ display: flex;
+ margin-top: 10px;
+ 
+
+}
+
+.weekDivs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  margin-left: 15px;
+}
+.hoursWeek{
+  
+  margin-top: 7px;
+}
+
+
+
+
  
