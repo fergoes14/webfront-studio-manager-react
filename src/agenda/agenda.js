@@ -157,6 +157,7 @@ class Agenda extends Component {
 
         this.setState({ start: new Date() })
         this.setState({ end: new Date() })
+
     }
 
 
@@ -279,7 +280,7 @@ class Agenda extends Component {
         console.log('Schedule Info : ', res.schedule.id);
         console.log('Schedule Info : ', new Date(res.schedule.start));
         console.log('Schedule Info : ', res.schedule);
-      
+
         console.groupEnd();
 
     }
@@ -373,14 +374,14 @@ class Agenda extends Component {
 
     onBeforeUpdateScheduleState(event) {
 
-    
+
 
         const { calendar } = event;
         const { schedule } = event;
         const changes = {
-            
+
             location: event[0],
-             
+
         }
         if (calendar) {
             changes.calendarId = calendar.id;
@@ -417,7 +418,7 @@ class Agenda extends Component {
             body:
                 'Fernando'
             ,
-           
+
             borderColor: scheduleData[4],
             calendarId: scheduleData[3],
             salaId: scheduleData[5],
@@ -527,7 +528,7 @@ class Agenda extends Component {
     alunosSelect() {
         const alunos = this.state.alunosMongo || []
         return alunos.map((ca) => (
-
+            
             <option value={ca.nome}>{ca.nome}</option>
         ))
     }
@@ -728,7 +729,7 @@ class Agenda extends Component {
                                             <i  className='fa fa-thumbs-o-up'></i>
 
                                         </div> */}
-                                        <div className={location === "Presença" ? "info-box bg-green" : location === 'Falta' ? "info-box bg-red" : location ==='Desmarcado' ? "info-box bg-yellow" : "info-box bg-aqua"} style={{ height: '90px' }}>
+                                        <div className={location === "Presença" ? "info-box bg-green" : location === 'Falta' ? "info-box bg-red" : location === 'Desmarcado' ? "info-box bg-yellow" : "info-box bg-aqua"} style={{ height: '90px' }}>
 
                                             <span className="info-box-icon">
                                                 <i className={location === 'Presença' ? "fa fa-thumbs-o-up" : location === 'Falta' ? "fa fa-thumbs-o-down" : location === 'Desmarcado' ? "fa fa-calendar-times-o" : 'fa fa-refresh'}></i></span>
@@ -740,17 +741,17 @@ class Agenda extends Component {
                                                     <option value='Falta'>Falta</option>
                                                     <option value='Desmarcado'>Desmarcado</option>
                                                 </select>
-                                                
-                                               {/* <span className="info-box-text">{location}</span> */}
+
+                                                {/* <span className="info-box-text">{location}</span> */}
                                                 <span className="info-box-number">{location}</span>
-                                                 
+
                                                 {/* <span className="progress-description">
                                                 {location}
                                                 </span>  */}
                                             </div>
 
                                         </div>
-                                    
+
                                     </div>
 
                                     <div style={{ display: 'flex' }}>
@@ -785,7 +786,7 @@ class Agenda extends Component {
 
                                         <button
                                             style={{ marginRight: '66px', backgroundColor: "#00a4ff" }}
-                                            onClick={(scheduleData) => this.onBeforeUpdateScheduleState(scheduleData = [location, calendarId,scheduleId ], this.handleOpenDetailModal(false))}
+                                            onClick={(scheduleData) => this.onBeforeUpdateScheduleState(scheduleData = [location, calendarId, scheduleId], this.handleOpenDetailModal(false))}
                                             className="tui-full-calendar-button tui-full-calendar-confirm tui-full-calendar-popup-save"
                                         >
                                             <span>Save</span>
@@ -840,7 +841,8 @@ class Agenda extends Component {
                                                 />
                                             </label> */}
                                         <select className=" form-control" onChange={(value) => this.handleTitle(value)}>
-                                            <option value='calendario'>Aluno</option>
+                                            <option>Aluno</option>
+                                            <option value='LIVRE'>LIVRE</option>
                                             {this.alunosSelect()}
                                         </select>
 
