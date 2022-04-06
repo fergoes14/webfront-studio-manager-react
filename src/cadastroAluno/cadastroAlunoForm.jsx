@@ -58,15 +58,21 @@ class CadastroAlunoForm extends Component {
                         <Field placeholder='E-mail' name='Email' component={LabelAndInput} label='Email' cols='12 4' readOnly={readOnly} />
                         <Field mask='(99)99999-9999' placeholder='whats' name='cel' component={LabelAndInput} label='Telefone' cols='12 4' readOnly={readOnly} />
 
-                        <Field name='status' label='Status' component={SelectInput} cols='12 6' readOnly={readOnly}>
-                            <option value=""></option>
+                        <Field name='status' label='Status' component={SelectInput} cols='12 4' readOnly={readOnly}>
+                            <option value="">Selecione o status</option>
                             <option value="Ativo">Ativo</option>
                             <option value="Inativo">Inativo</option>
                         </Field>
-                        <Field mask='99/99/9999' placeholder='Nascimento' name='nascimento' component={LabelAndInput} cols='12 6' label='Nascimento' readOnly={readOnly} />
+                        <Field mask='99/99/9999' placeholder='Nascimento' name='nascimento' component={LabelAndInput} cols='12 4' label='Nascimento' readOnly={readOnly} />
+                        <Field name='sexo' label='Sexo' component={SelectInput} cols='12 4' readOnly={readOnly}>
+                            <option value="">Selecione o sexo</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                            <option value="Outro">Outro</option>
+                        </Field>
 
-                        <Field placeholder='Intuito' name='intuito' component={LabelAndInput} label='Intuito' readOnly={readOnly} />
-                        <Field placeholder='Restições' name='restricoes' component={LabelAndInput} label='Restrições' readOnly={readOnly} />
+                        <Field placeholder='Intuito'cols='12 6' name='intuito' component={LabelAndInput} label='Intuito' readOnly={readOnly} />
+                        <Field placeholder='Restições'cols='12 6' name='restricoes' component={LabelAndInput} label='Restrições' readOnly={readOnly} />
 
                         <Field type='hidden' name='studio' component={LabelAndInput} />
 
