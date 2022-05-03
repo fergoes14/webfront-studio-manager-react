@@ -40,7 +40,7 @@ class CadastroAlunoForm extends Component {
         this.props.init
 
     }
-   
+
 
 
 
@@ -71,23 +71,26 @@ class CadastroAlunoForm extends Component {
                             <option value="Outro">Outro</option>
                         </Field>
 
-                        <Field placeholder='Intuito'cols='12 6' name='intuito' component={LabelAndInput} label='Intuito' readOnly={readOnly} />
-                        <Field placeholder='Restições'cols='12 6' name='restricoes' component={LabelAndInput} label='Restrições' readOnly={readOnly} />
+                       
 
                         <Field type='hidden' name='studio' component={LabelAndInput} />
 
-                        <Field type="file" name="poster" component={FileInput} label='Upload File' />
+                        {/* <Field type="file" name="poster" component={FileInput} label='Upload File' /> */}
                     </div>
 
                     <div>
-                        <Field mask="99999-999" placeholder='CEP' name='cep' component={LabelAndInput} label='CEP' readOnly={readOnly} cols='12 4' />
-                        <Field placeholder='Número' name='numero' type='Number' component={LabelAndInput} label='Número' readOnly={readOnly} cols='12 4' />
-                        <Field placeholder='Complemento' name='complemento' component={LabelAndInput} label='Complemento' readOnly={readOnly} cols='12 4' />
+                        <Field mask="999-999-999-99" placeholder='CPF' name='cpf' component={LabelAndInput} label='CPF' readOnly={readOnly} cols='6 6' />
+                        <Field mask="99999-999" placeholder='CEP' name='cep' component={LabelAndInput} label='CEP' readOnly={readOnly} cols='6 6' />
+                        <Field placeholder='Número' name='numero' type='Number' component={LabelAndInput} label='Número' readOnly={readOnly} cols='6 6' />
+                        <Field placeholder='Complemento' name='complemento' component={LabelAndInput} label='Complemento' readOnly={readOnly} cols='6 6' />
                         <Field placeholder='Bairro' name='bairro' component={LabelAndInput} label='Bairro' readOnly={readOnly} cols='6 6' />
                         <Field placeholder='Rua' name='rua' component={LabelAndInput} label='Rua' readOnly={readOnly} cols='6 6' />
+                        
+                        <Field placeholder='Intuito' cols='12 6' name='intuito' component={LabelAndInput} label='Intuito' readOnly={readOnly} />
+                        <Field placeholder='Restições' cols='12 6' name='restricoes' component={LabelAndInput} label='Restrições' readOnly={readOnly} />
                     </div>
 
-                   
+
 
 
                     <div className='box-footer'>
