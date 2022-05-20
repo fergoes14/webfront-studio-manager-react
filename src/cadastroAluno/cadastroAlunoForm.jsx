@@ -55,7 +55,7 @@ class CadastroAlunoForm extends Component {
                 <form role='form' onSubmit={handleSubmit}>
                     <div>
                         <Field placeholder='Nome' name='nome' component={LabelAndInput} label='Nome' cols='12 4' readOnly={readOnly} />
-                        <Field placeholder='E-mail' name='Email' component={LabelAndInput} label='Email' cols='12 4' readOnly={readOnly} />
+                        <Field placeholder='E-mail' name='email' component={LabelAndInput} label='Email' cols='12 4' readOnly={readOnly} />
                         <Field mask='(99)99999-9999' placeholder='whats' name='cel' component={LabelAndInput} label='Telefone' cols='12 4' readOnly={readOnly} />
 
                         <Field name='status' label='Status' component={SelectInput} cols='12 4' readOnly={readOnly}>
