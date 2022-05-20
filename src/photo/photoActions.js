@@ -2,7 +2,7 @@ import axios from 'axios'
 import { toastr } from 'react-redux-toastr'
 import { submit } from 'redux-form'
 
-const BASE_URL = 'https://backend-studio-manager.herokuapp.com/fileupload'
+const BASE_URL = 'https://backend-studio-react.herokuapp.com/fileupload'
 
 export function update(values) {
     return dispatch => {

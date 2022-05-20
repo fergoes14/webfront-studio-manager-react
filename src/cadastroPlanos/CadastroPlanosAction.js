@@ -6,7 +6,7 @@ import { showTabs, selectTab } from '../common/tabs/tabActions'
 
 
 
-const BASE_URL = 'https://backend-studio-manager.herokuapp.com/planos'
+const BASE_URL = 'https://backend-studio-react.herokuapp.com/planos'
 const INITIAL_VALUES = {}
 
 export function getList() {

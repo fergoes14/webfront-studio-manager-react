@@ -13,8 +13,8 @@ import InfoBox from '../common/widget/infoBox'
 import moment from 'moment'
 
 
-const BASE_URL = 'https://backend-studio-manager.herokuapp.com/alunos/summary'
-const URL = 'https://backend-studio-manager.herokuapp.com/matriculas'
+const BASE_URL = 'https://backend-studio-react.herokuapp.com/alunos/summary'
+const URL = 'https://backend-studio-react.herokuapp.com/matriculas'
 class Dashboard extends Component {
     constructor(props) {
         super(props)

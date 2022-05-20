@@ -7,8 +7,8 @@ import axios from 'axios'
 
 
 
-// const BASE_URL = 'https://backend-studio-manager.herokuapp.com/profissionais/summary'
-const BASE_URL = 'https://backend-studio-manager.herokuapp.com/pagamentos/summary'
+// const BASE_URL = 'https://backend-studio-react.herokuapp.com/profissionais/summary'
+const BASE_URL = 'https://backend-studio-react.herokuapp.com/pagamentos/summary'
 class CountBilling extends Component {
 
     state = {

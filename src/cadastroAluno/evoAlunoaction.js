@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-const URL = 'https://backend-studio-manager.herokuapp.com/fileupload'
+const URL = 'https://backend-studio-react.herokuapp.com/fileupload'
 
 
 export function getList() {

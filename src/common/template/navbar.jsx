@@ -59,7 +59,7 @@ class Navbar extends Component {
     }
 
     fileUpload(file) {
-        const url = 'https://backend-studio-manager.herokuapp.com/users';
+        const url = 'https://backend-studio-react.herokuapp.com/users';
         const formData = new FormData();
         formData.append('photos', file)
         const config = {

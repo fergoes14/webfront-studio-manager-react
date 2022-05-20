@@ -13,7 +13,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 
-const URL = 'https://backend-studio-manager.herokuapp.com'
+const URL = 'https://backend-studio-react.herokuapp.com'
 
 class CadastroAlunoForm extends Component {
     constructor(props) {

@@ -18,7 +18,7 @@ import { TuiDateRangePicker } from 'tui-date-picker-react'
 import { convertCompilerOptionsFromJson } from 'typescript';
 
 
-const URL = 'https://backend-studio-manager.herokuapp.com'
+const URL = 'https://backend-studio-react.herokuapp.com'
 class Agenda extends Component {
 
     ref = React.createRef();

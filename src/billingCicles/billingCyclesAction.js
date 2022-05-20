@@ -3,7 +3,7 @@ import { toastr } from 'react-redux-toastr'
 import { reset as resetForm, initialize } from 'redux-form'
 import { showTabs, selectTab } from '../common/tabs/tabActions'
 
-const BASE_URL = 'https://backend-studio-manager.herokuapp.com'
+const BASE_URL = 'https://backend-studio-react.herokuapp.com'
 const INITIAL_VALUES = {credito: [{}], debito: [{}]}
 
 export function getList() {

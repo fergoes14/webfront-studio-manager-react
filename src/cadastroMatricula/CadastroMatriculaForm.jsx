@@ -15,7 +15,7 @@ import moment from 'moment'
 import ItemList from './itemList'
 
 
-const URL = 'https://backend-studio-manager.herokuapp.com'
+const URL = 'https://backend-studio-react.herokuapp.com'
 class CadastroMatriculaForm extends Component {
     ref = React.createRef();
     calendarInst = null;
