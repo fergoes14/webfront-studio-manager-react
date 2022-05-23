@@ -34,6 +34,7 @@ class CadastroAlunoList extends Component {
                 <td>{ca.nome}</td>
                 <td>{ca.status}</td>
                 <td>{ca.cel}</td>
+                <td>{ca.cpf}</td>
                 <td>
                     <button className='btn btn-warning' onClick={() => this.props.showUpdate(ca)}>
                         <i className='fa fa-pencil'></i>
@@ -77,6 +78,7 @@ class CadastroAlunoList extends Component {
                                 <th>Nome</th>
                                 <th>Status</th>
                                 <th>WhatsApp</th>
+                                <th>CPF</th>
                                 <th className='tableActions'>Ações</th>
                             </tr>
                         </thead>
